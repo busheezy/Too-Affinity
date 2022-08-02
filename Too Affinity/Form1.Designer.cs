@@ -43,7 +43,7 @@
             // notifyIcon1
             // 
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Text = "Too Affinity";
             this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
             // 
             // statusStrip1
@@ -52,19 +52,20 @@
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 139);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(384, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(234, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(97, 17);
+            this.toolStripStatusLabel1.Text = "Waiting for csgo.";
             // 
             // startWithWindowsCb
             // 
             this.startWithWindowsCb.AutoSize = true;
-            this.startWithWindowsCb.Location = new System.Drawing.Point(12, 12);
+            this.startWithWindowsCb.Location = new System.Drawing.Point(12, 62);
             this.startWithWindowsCb.Name = "startWithWindowsCb";
             this.startWithWindowsCb.Size = new System.Drawing.Size(130, 19);
             this.startWithWindowsCb.TabIndex = 1;
@@ -75,7 +76,7 @@
             // startMinimizedCb
             // 
             this.startMinimizedCb.AutoSize = true;
-            this.startMinimizedCb.Location = new System.Drawing.Point(12, 37);
+            this.startMinimizedCb.Location = new System.Drawing.Point(12, 87);
             this.startMinimizedCb.Name = "startMinimizedCb";
             this.startMinimizedCb.Size = new System.Drawing.Size(109, 19);
             this.startMinimizedCb.TabIndex = 2;
@@ -86,7 +87,7 @@
             // disableFirstCoreCb
             // 
             this.disableFirstCoreCb.AutoSize = true;
-            this.disableFirstCoreCb.Location = new System.Drawing.Point(12, 62);
+            this.disableFirstCoreCb.Location = new System.Drawing.Point(12, 12);
             this.disableFirstCoreCb.Name = "disableFirstCoreCb";
             this.disableFirstCoreCb.Size = new System.Drawing.Size(117, 19);
             this.disableFirstCoreCb.TabIndex = 3;
@@ -97,7 +98,7 @@
             // disableHtCb
             // 
             this.disableHtCb.AutoSize = true;
-            this.disableHtCb.Location = new System.Drawing.Point(12, 87);
+            this.disableHtCb.Location = new System.Drawing.Point(12, 37);
             this.disableHtCb.Name = "disableHtCb";
             this.disableHtCb.Size = new System.Drawing.Size(138, 19);
             this.disableHtCb.TabIndex = 4;
@@ -109,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 161);
+            this.ClientSize = new System.Drawing.Size(234, 161);
             this.Controls.Add(this.disableHtCb);
             this.Controls.Add(this.disableFirstCoreCb);
             this.Controls.Add(this.startMinimizedCb);
