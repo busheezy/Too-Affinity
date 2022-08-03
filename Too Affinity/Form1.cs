@@ -1,5 +1,6 @@
 using Microsoft.Win32;
 using System.Diagnostics;
+using System.Collections;
 
 namespace Too_Affinity;
 
@@ -71,15 +72,53 @@ public partial class Form1 : Form
             disableHtCb.Enabled = false;
 
             enable(csgoProcesses[0]);
+
             attached = true;
         }
     }
 
-    private int getCurrentAffInt(Process process)
+    private long GetIntFromBitArray(BitArray bitArray)
     {
-        var aff = process.ProcessorAffinity;
-        var affInt = aff.ToInt32();
-        return affInt;
+        var array = new byte[8];
+        bitArray.CopyTo(array, 0);
+        return BitConverter.ToInt64(array, 0);
+    }
+
+    private void enable(Process process)
+    {
+        int processorCount = Environment.ProcessorCount;
+        BitArray affBits = new BitArray(processorCount, true);
+
+        int offset = 0;
+
+        if (disableFirstCoreCb.Checked)
+        {
+            offset += 1;
+            affBits.Set(0, false);
+
+            if (disableHtCb.Checked)
+            {
+                offset += 1;
+                affBits.Set(1, false);
+            }
+        }
+
+        if (disableHtCb.Checked)
+        {
+            for (int i = offset; i <= processorCount; i++)
+            {
+                if (i % 2 != 0)
+                {
+                    affBits.Set(i, false);
+                }
+            }
+        }
+
+        var affInt64Result = GetIntFromBitArray(affBits);
+        process.ProcessorAffinity = new IntPtr(affInt64Result);
+
+        var affSzResult = Convert.ToString(affInt64Result, 2);
+        toolStripStatusLabel1.Text = $"Attached: {ReverseSz(affSzResult)}";
     }
 
     public static string ReverseSz(string s)
@@ -87,53 +126,6 @@ public partial class Form1 : Form
         char[] charArray = s.ToCharArray();
         Array.Reverse(charArray);
         return new string(charArray);
-    }
-
-    public static int modifyBit(int num, int position, int newBit)
-    {
-        int mask = 1 << position;
-        return (num & ~mask) | ((newBit << position) & mask);
-    }
-
-    private void setLabelBinary(int affInt, int length)
-    {
-        var affSz = Convert.ToString(affInt, 2).PadLeft(20, '0');
-        toolStripStatusLabel1.Text = $"Attached: {ReverseSz(affSz)}";
-    }
-
-    private void enable(Process process)
-    {
-        var affInt = getCurrentAffInt(process);
-        var affSz = Convert.ToString(affInt, 2);
-
-        int offset = 0;
-
-        if (disableFirstCoreCb.Checked)
-        {
-            affInt = modifyBit(affInt, 0, 0);
-            offset += 1;
-
-            if (disableHtCb.Checked)
-            {
-                offset += 1;
-                affInt = modifyBit(affInt, 1, 0);
-            }
-        }
-
-        if (disableHtCb.Checked)
-        {
-            for (int i = offset; i <= affSz.Length; i++)
-            {
-                if (i % 2 != 0)
-                {
-                    affInt = modifyBit(affInt, i, 0);
-                }
-            }
-        }
-
-        setLabelBinary(affInt, affSz.Length);
-
-        process.ProcessorAffinity = new IntPtr(affInt);
     }
 
     private void Form1_Resize(object sender, EventArgs e)
