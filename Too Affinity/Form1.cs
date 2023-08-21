@@ -9,7 +9,7 @@ public partial class Form1 : Form
     private static string appName = "Too Affinity";
     private static System.Windows.Forms.Timer processCheckTimer = new System.Windows.Forms.Timer();
     private static bool attached = false;
-    private static string[] exeNames = { "csgo", "cs2", "notepad" };
+    private static string[] exeNames = { "csgo", "cs2" };
     private Process? foundProcess = null;
 
     public Form1()
