@@ -28,106 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.startWithWindowsCb = new System.Windows.Forms.CheckBox();
-            this.startMinimizedCb = new System.Windows.Forms.CheckBox();
-            this.disableFirstCoreCb = new System.Windows.Forms.CheckBox();
-            this.disableHtCb = new System.Windows.Forms.CheckBox();
-            this.statusStrip1.SuspendLayout();
-            this.SuspendLayout();
+            notifyIcon1 = new NotifyIcon(components);
+            statusStrip1 = new StatusStrip();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            startWithWindowsCb = new CheckBox();
+            startMinimizedCb = new CheckBox();
+            disableFirstCoreCb = new CheckBox();
+            disableHtCb = new CheckBox();
+            statusStrip1.SuspendLayout();
+            SuspendLayout();
             // 
             // notifyIcon1
             // 
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Too Affinity";
-            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            notifyIcon1.Icon = (Icon)resources.GetObject("notifyIcon1.Icon");
+            notifyIcon1.Text = "Too Affinity";
+            notifyIcon1.DoubleClick += notifyIcon1_DoubleClick;
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 139);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(234, 22);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Location = new Point(0, 139);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(234, 22);
+            statusStrip1.TabIndex = 0;
+            statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(97, 17);
-            this.toolStripStatusLabel1.Text = "Waiting for csgo.";
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(0, 17);
             // 
             // startWithWindowsCb
             // 
-            this.startWithWindowsCb.AutoSize = true;
-            this.startWithWindowsCb.Location = new System.Drawing.Point(12, 62);
-            this.startWithWindowsCb.Name = "startWithWindowsCb";
-            this.startWithWindowsCb.Size = new System.Drawing.Size(130, 19);
-            this.startWithWindowsCb.TabIndex = 1;
-            this.startWithWindowsCb.Text = "Start With Windows";
-            this.startWithWindowsCb.UseVisualStyleBackColor = true;
-            this.startWithWindowsCb.CheckedChanged += new System.EventHandler(this.startWithWindowsCb_CheckedChanged);
+            startWithWindowsCb.AutoSize = true;
+            startWithWindowsCb.Location = new Point(12, 62);
+            startWithWindowsCb.Name = "startWithWindowsCb";
+            startWithWindowsCb.Size = new Size(130, 19);
+            startWithWindowsCb.TabIndex = 1;
+            startWithWindowsCb.Text = "Start With Windows";
+            startWithWindowsCb.UseVisualStyleBackColor = true;
+            startWithWindowsCb.CheckedChanged += startWithWindowsCb_CheckedChanged;
             // 
             // startMinimizedCb
             // 
-            this.startMinimizedCb.AutoSize = true;
-            this.startMinimizedCb.Location = new System.Drawing.Point(12, 87);
-            this.startMinimizedCb.Name = "startMinimizedCb";
-            this.startMinimizedCb.Size = new System.Drawing.Size(109, 19);
-            this.startMinimizedCb.TabIndex = 2;
-            this.startMinimizedCb.Text = "Start Minimized";
-            this.startMinimizedCb.UseVisualStyleBackColor = true;
-            this.startMinimizedCb.CheckedChanged += new System.EventHandler(this.startMinimizedCb_CheckedChanged);
+            startMinimizedCb.AutoSize = true;
+            startMinimizedCb.Location = new Point(12, 87);
+            startMinimizedCb.Name = "startMinimizedCb";
+            startMinimizedCb.Size = new Size(109, 19);
+            startMinimizedCb.TabIndex = 2;
+            startMinimizedCb.Text = "Start Minimized";
+            startMinimizedCb.UseVisualStyleBackColor = true;
+            startMinimizedCb.CheckedChanged += startMinimizedCb_CheckedChanged;
             // 
             // disableFirstCoreCb
             // 
-            this.disableFirstCoreCb.AutoSize = true;
-            this.disableFirstCoreCb.Location = new System.Drawing.Point(12, 12);
-            this.disableFirstCoreCb.Name = "disableFirstCoreCb";
-            this.disableFirstCoreCb.Size = new System.Drawing.Size(117, 19);
-            this.disableFirstCoreCb.TabIndex = 3;
-            this.disableFirstCoreCb.Text = "Disable First Core";
-            this.disableFirstCoreCb.UseVisualStyleBackColor = true;
-            this.disableFirstCoreCb.CheckedChanged += new System.EventHandler(this.disableFirstCoreCb_CheckedChanged);
+            disableFirstCoreCb.AutoSize = true;
+            disableFirstCoreCb.Location = new Point(12, 12);
+            disableFirstCoreCb.Name = "disableFirstCoreCb";
+            disableFirstCoreCb.Size = new Size(117, 19);
+            disableFirstCoreCb.TabIndex = 3;
+            disableFirstCoreCb.Text = "Disable First Core";
+            disableFirstCoreCb.UseVisualStyleBackColor = true;
+            disableFirstCoreCb.CheckedChanged += disableFirstCoreCb_CheckedChanged;
             // 
             // disableHtCb
             // 
-            this.disableHtCb.AutoSize = true;
-            this.disableHtCb.Location = new System.Drawing.Point(12, 37);
-            this.disableHtCb.Name = "disableHtCb";
-            this.disableHtCb.Size = new System.Drawing.Size(138, 19);
-            this.disableHtCb.TabIndex = 4;
-            this.disableHtCb.Text = "Disable Hyperthreads";
-            this.disableHtCb.UseVisualStyleBackColor = true;
-            this.disableHtCb.CheckedChanged += new System.EventHandler(this.disableHtCb_CheckedChanged);
+            disableHtCb.AutoSize = true;
+            disableHtCb.Location = new Point(12, 37);
+            disableHtCb.Name = "disableHtCb";
+            disableHtCb.Size = new Size(138, 19);
+            disableHtCb.TabIndex = 4;
+            disableHtCb.Text = "Disable Hyperthreads";
+            disableHtCb.UseVisualStyleBackColor = true;
+            disableHtCb.CheckedChanged += disableHtCb_CheckedChanged;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 161);
-            this.Controls.Add(this.disableHtCb);
-            this.Controls.Add(this.disableFirstCoreCb);
-            this.Controls.Add(this.startMinimizedCb);
-            this.Controls.Add(this.startWithWindowsCb);
-            this.Controls.Add(this.statusStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.Name = "Form1";
-            this.Text = "Too Affinity";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Shown += new System.EventHandler(this.Form1_Shown);
-            this.Resize += new System.EventHandler(this.Form1_Resize);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(234, 161);
+            Controls.Add(disableHtCb);
+            Controls.Add(disableFirstCoreCb);
+            Controls.Add(startMinimizedCb);
+            Controls.Add(startWithWindowsCb);
+            Controls.Add(statusStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            Name = "Form1";
+            Text = "Too Affinity";
+            Load += Form1_Load;
+            Shown += Form1_Shown;
+            Resize += Form1_Resize;
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
