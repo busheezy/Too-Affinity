@@ -9,6 +9,8 @@ public partial class Form1 : Form
     private static string appName = "Too Affinity";
     private static System.Windows.Forms.Timer processCheckTimer = new System.Windows.Forms.Timer();
     private static bool attached = false;
+    private static string[] exeNames = { "csgo", "cs2", "notepad" };
+    private Process? foundProcess = null;
 
     public Form1()
     {
@@ -17,6 +19,8 @@ public partial class Form1 : Form
 
     private void Form1_Load(object sender, EventArgs e)
     {
+        toolStripStatusLabel1.Text = "Waiting for game.";
+
         initCbState();
         startTimer();
     }
@@ -52,28 +56,37 @@ public partial class Form1 : Form
 
     private void onProcessCheck(Object? source, EventArgs e)
     {
-        Process[] csgoProcesses = Process.GetProcessesByName("csgo");
-
-        if (csgoProcesses.Length == 0 && attached)
+        foreach (String exeName in exeNames)
         {
-            // disable
+            Process[] gameProcceses = Process.GetProcessesByName(exeName);
 
+            if (gameProcceses.Length > 0)
+            {
+                this.foundProcess = gameProcceses[0];
+                break;
+            }
+            else
+            {
+                this.foundProcess = null;
+            }
+        }
+
+
+        if (this.foundProcess == null && attached)
+        {
             disableFirstCoreCb.Enabled = true;
             disableHtCb.Enabled = true;
-
-            toolStripStatusLabel1.Text = "Waiting for csgo.";
             attached = false;
-        }
-        else if (csgoProcesses.Length > 0 && !attached)
-        {
-            //enable
 
+            toolStripStatusLabel1.Text = "Waiting for game.";
+        }
+        else if (this.foundProcess != null && !attached)
+        {
             disableFirstCoreCb.Enabled = false;
             disableHtCb.Enabled = false;
-
-            enable(csgoProcesses[0]);
-
             attached = true;
+
+            enable(this.foundProcess);
         }
     }
 
