@@ -102,28 +102,14 @@ public partial class Form1 : Form
         int processorCount = Environment.ProcessorCount;
         BitArray affBits = new BitArray(processorCount, true);
 
-        int offset = 0;
 
         if (disableFirstCoreCb.Checked)
         {
-            offset += 1;
             affBits.Set(0, false);
 
             if (disableHtCb.Checked)
             {
-                offset += 1;
                 affBits.Set(1, false);
-            }
-        }
-
-        if (disableHtCb.Checked)
-        {
-            for (int i = offset; i <= processorCount; i++)
-            {
-                if (i % 2 != 0)
-                {
-                    affBits.Set(i, false);
-                }
             }
         }
 
@@ -196,6 +182,15 @@ public partial class Form1 : Form
     {
         Properties.Settings.Default.disableFirstCore = disableFirstCoreCb.Checked;
         Properties.Settings.Default.Save();
+
+        if (disableFirstCoreCb.Checked)
+        {
+            disableHtCb.Enabled = true;
+        }
+        else
+        {
+            disableHtCb.Enabled = false;
+        }
     }
 
     private void disableHtCb_CheckedChanged(object sender, EventArgs e)

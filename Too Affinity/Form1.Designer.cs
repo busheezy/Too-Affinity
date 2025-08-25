@@ -98,9 +98,9 @@
             disableHtCb.AutoSize = true;
             disableHtCb.Location = new Point(12, 37);
             disableHtCb.Name = "disableHtCb";
-            disableHtCb.Size = new Size(138, 19);
+            disableHtCb.Size = new Size(158, 19);
             disableHtCb.TabIndex = 4;
-            disableHtCb.Text = "Disable Hyperthreads";
+            disableHtCb.Text = "Disable First Hyperthread";
             disableHtCb.UseVisualStyleBackColor = true;
             disableHtCb.CheckedChanged += disableHtCb_CheckedChanged;
             // 
