@@ -13,7 +13,7 @@
 ## Features
 
 - Disabling first core for CS
-- Disabling hyper threads for CS
+- Disabling first hyperthread
 
 ## Explanation
 
